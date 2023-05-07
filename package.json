@@ -1,6 +1,5 @@
 {
-  "name": "vite-plugin-reduce-plugin-system",
-  "private": true,
+  "name": "vite-plugin-reduce-plugin-system-test",
   "version": "0.0.0",
   "type": "module",
   "main": "dist/vite-plugin-reduce-plugin-system.es.js",
@@ -13,7 +12,8 @@
   "dependencies": {
     "antd": "^5.4.7",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "vite-plugin-reduce-plugin-system": "0.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

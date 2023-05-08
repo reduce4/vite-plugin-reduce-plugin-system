@@ -6,7 +6,7 @@ const Chatgpt = ({ value, onChange }) => {
     <>
       <Card title="chatgpt">
         <Input.TextArea
-          value={value?.data?.postData?.time ?? ""}
+          value={value?.["@reduce/chatgpt@0.0.0"]?.data?.condition?.msg ?? ""}
           autoSize
           style={{
             minHeight: "200px",
@@ -23,9 +23,14 @@ const Chatgpt = ({ value, onChange }) => {
             <Button
               type="primary"
               onClick={() => {
-                var c = { ...value };
-                c.data.postData.time = inputMsg;
-                onChange(c);
+                var c = value["@reduce/chatgpt@0.0.0"];
+                onChange({
+                  ...c,
+                  data: {
+                    ...c.data,
+                    conditon: { ...condition, msg: inputMsg },
+                  },
+                });
                 setInputMsg();
               }}
             >

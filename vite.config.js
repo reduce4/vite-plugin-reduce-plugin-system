@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import Inspect from 'vite-plugin-inspect'
-import reducePluginSystem from 'vite-plugin-reduce-plugin-system'
+import reducePluginSystem from './src/main.js'
 
 
 // https://vitejs.dev/config/

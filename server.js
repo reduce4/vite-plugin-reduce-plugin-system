@@ -7,9 +7,7 @@ app.post('/api', (req, res) => {
     res.send({
         code: 1,
         msg: 'ok',
-        data: {
-            postData: req.body
-        }
+        data: req.body
     })
 })
 app.listen(10000)

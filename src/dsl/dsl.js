@@ -1,15 +1,22 @@
 export default {
-    "api": {
-        "method": "POST",
-        "hooks": [
-            { "name": "doChat", "initValue": null, "payloadType": "string", "i18n": "聊天" }
-        ],
-        "url": "http://localhost:10000/api",
-        "headers": {
-            "token": "${token}"
+    "hooks": {
+        "doType": {
+            "input": "doType",
+            "inputInitValue": "null",
+            "payloadType": "string",
+            "hooksMeans": "设置打字的内容"
         },
-        "data": {
-            "msg": "${value['@reduce/chatgpt@0.0.0'].conditon.msg}"
+        "doChat": {
+            "input": "doChat",
+            "output": "doChatReturn",
+            "inputInitValue": "null",
+            "outputInitValue": "[]",
+            "payloadType": "string",
+            "hooksMeans": "想chatgpt说一句话",
+            "hooksReturnMeans": "和chatgpt聊天的内容"
         }
+    },
+    "config": {
+        "token": ""
     }
 }

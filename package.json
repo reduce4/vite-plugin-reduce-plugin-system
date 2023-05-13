@@ -10,12 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "antd": "^5.4.7",
+    "chatgpt": "^5.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "vite-plugin-reduce-plugin-system": "0.0.0"
   },
   "devDependencies": {
+    "antd": "^5.4.7",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",

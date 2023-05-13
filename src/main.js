@@ -1,44 +1,49 @@
+function firstLetterUpperCase(str) {
+    return str.slice(0, 1).toUpperCase() + str.slice(1)
+}
+function generateUseStates(hooksDslObject) {
+    const keys = Object.keys(hooksDslObject);
+    return `
+        ${keys.reduce((v, t, i) => {
+        return v + `
+            const [${t},set${firstLetterUpperCase(t)}] = useState(${hooksDslObject[t].inputInitValue});
+            ${hooksDslObject[t].output == null ? "" :
+                `const [${hooksDslObject[t].output},set${firstLetterUpperCase(hooksDslObject[t].output)}] = useState(${hooksDslObject[t].outputInitValue});`
+            }
+        `;
+    }, '')}
+    `;
+}
+function generateHooks(hooksDslObject) {
+    const keys = Object.keys(hooksDslObject);
+    return `
+        {
+            ${keys.reduce((v, t, i) => {
+        v.push(`${t}:${t}`);
+        v.push(`set${firstLetterUpperCase(t)}:set${firstLetterUpperCase(t)}`);
+        if (hooksDslObject[t].output != null) {
+            v.push(`${hooksDslObject[t].output}:${hooksDslObject[t].output}`);
+            v.push(`set${firstLetterUpperCase(hooksDslObject[t].output)}:set${firstLetterUpperCase(hooksDslObject[t].output)}`);
+        }
+        return v;
+    }, []).join(",")
+        }
+        }
+    `;
+}
 export default function reducePluginSystem() {
     return {
         name: 'reducePluginSystem',
         transform(code, id) {
             if (/dsl\.js/.test(id)) {
-                const serviceComponent = JSON.parse(code.replace(/export[\s]+default[\s]*/g, ''));
-                let data = JSON.stringify(serviceComponent.api.data);
-                const headers = JSON.stringify({
-                    ...serviceComponent.api.headers,
-                    'Content-Type': "application/json"
-                })
+                const dslObject = JSON.parse(code.replace(/export[\s]+default[\s]*/g, '').replace(/\n/g, ' '));
                 return `
                     import React,{useState, useEffect} from 'react';
-                    import {message} from 'antd'
                     export default function({children}){
-                    
-                       const [value, onChange] = useState({'@reduce/chatgpt@0.0.0':null});
-                       
-                       useEffect(() => {
-                            if(value['@reduce/chatgpt0.0.0'] == null){
-                                return;                                
-                            }
-                            const fdata = async () => {
-                                try{
-                                    const res = await fetch('${serviceComponent.api.url}', {
-                                        method: '${serviceComponent.api.method}',
-                                        headers: ${headers},
-                                        body: '${data}'
-                                    });
-                                    const d = (await res.json())
-                                    onChange({...value, '@reduce/chatgpt@0.0.0': d})
-                                }catch(e){
-                                    message.error(e.message);
-                                }
-                            }
-                            fdata();
-                       },[value['@reduce/chatgpt0.0.0']]);
-                       return React.createElement(children.type, {...children.props, value, onChange});
+                        ${generateUseStates(dslObject.hooks)}
+                        return React.createElement(children.type, {...children.props, hooks: ${generateHooks(dslObject.hooks)},config: ${JSON.stringify(dslObject.config)}});
                     }
                 `;
-
             }
             return code;
         }

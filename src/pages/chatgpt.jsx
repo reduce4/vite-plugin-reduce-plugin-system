@@ -1,12 +1,20 @@
 import { Card, Input, Button, Row, Col } from "antd";
-import { useState } from "react";
-const Chatgpt = ({ value, onChange }) => {
-  const [inputMsg, setInputMsg] = useState();
+import useDoChat from "../hooks/useDoChat";
+const formatDoChatReturn = (chats) => {
+  return chats.reduce((v, t, i) => {
+    return v + `${i % 2 == 0 ? "我" : "chatgpt"}说: ${t}` + "\n";
+  }, "");
+};
+const Chatgpt = ({ hooks, config }) => {
+  useDoChat({
+    hooks,
+    config,
+  });
   return (
     <>
       <Card title="chatgpt">
         <Input.TextArea
-          value={value?.["@reduce/chatgpt@0.0.0"]?.data?.condition?.msg ?? ""}
+          value={formatDoChatReturn(hooks.doChatReturn)}
           autoSize
           style={{
             minHeight: "200px",
@@ -15,23 +23,16 @@ const Chatgpt = ({ value, onChange }) => {
         <Row>
           <Col span={23}>
             <Input
-              value={inputMsg}
-              onChange={({ target: { value } }) => setInputMsg(value)}
+              value={hooks.doType}
+              onChange={({ target: { value } }) => hooks.setDoType(value)}
             />
           </Col>
           <Col span={1}>
             <Button
               type="primary"
               onClick={() => {
-                var c = value["@reduce/chatgpt@0.0.0"];
-                onChange({
-                  ...c,
-                  data: {
-                    ...c.data,
-                    conditon: { ...condition, msg: inputMsg },
-                  },
-                });
-                setInputMsg();
+                hooks.setDoChat(hooks.doType);
+                hooks.setDoType("");
               }}
             >
               submit

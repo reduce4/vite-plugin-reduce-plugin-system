@@ -1,5 +1,5 @@
 {
-  "name": "vite-plugin-reduce-plugin-system-test",
+  "name": "vite-plugin-reduce-plugin-system",
   "version": "0.0.0",
   "type": "module",
   "main": "dist/vite-plugin-reduce-plugin-system.es.js",

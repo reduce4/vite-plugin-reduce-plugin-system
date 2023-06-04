@@ -6,7 +6,9 @@ import reducePluginSystem from './src/main.js'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), Inspect(), reducePluginSystem()],
+  plugins: [react(), Inspect(), reducePluginSystem({
+    mode: 'base'
+  })],
   build: {
     lib: {
       entry: 'src/main.js',

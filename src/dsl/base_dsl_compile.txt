@@ -1,0 +1,31 @@
+{
+	"@reduce/1":{
+		"in_org_id":"@reduce/pdf@0.0.0",
+		"hooks":{
+			"doSelect",
+			"setDoSelect",
+			"doFloatShow",
+			"setDoFloatShow",
+			"doFloatButtonClick",
+			"setDoFloatButtonClick"
+		}
+	},
+	"@reduce/2":{
+		"in_org_id":"@reduce/card@0.0.0",
+		"hooks":{
+			"doShow",
+			"setDoShow",
+			"doMove",
+			"setDoMove"
+		}
+	}
+}
+
+const [isInitialRender, setIsInitialRender] = useState(true);
+useEffect(() => {
+	if(isInitialRender){
+		setIsInitialRender(false);
+		return;	
+	}
+	'@reduce/2'['hooks']['setDoMove']([0,0])	
+},['@reduce/1'['hooks']['doFloatButtonClick']]);

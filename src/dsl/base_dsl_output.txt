@@ -1,0 +1,355 @@
+export default
+    [
+    {
+        "id": "@reduce/1",
+        "shape": "plugin",
+        "x": 90,
+        "y": 110,
+        "data": {
+            "plugin": {
+                "in_org_id": "@reduce/pdf@0.0.0",
+                "name": "pdf",
+                "org_name": "reduce",
+                "author_name": "happysmile",
+                "installed": true,
+                "profile_page": "https://github.com/happysmile12321",
+                "national_name": [
+                    "China"
+                ],
+                "repo_link": "https://github.com/reduce4/pdf",
+                "version": "0.0.0",
+                "description": "pdf plugin for control pdf",
+                "pay_qrcode": "",
+                "icon": "/plugin.png",
+                "org_icon": "/reduce_org.png",
+                "component_url": "http://127.0.0.1:6001/pdf/src/main.jsx",
+                "comment": [
+                    {
+                        "name": "happysmile",
+                        "account": "@reduce/happysmile",
+                        "content": "very nice pdf tools!",
+                        "star": 5
+                    },
+                    {
+                        "name": "ken",
+                        "account": "@ken/ken",
+                        "content": "speed, simple, useful tools!",
+                        "star": 5
+                    }
+                ],
+                "usage": [
+                    {
+                        "open_time": "",
+                        "close_time": "",
+                        "duration": 0,
+                        "command_history": []
+                    }
+                ],
+                "roadmap": {
+                    "content": {
+                        "2023-05-14": "done"
+                    }
+                },
+                "dsl": {
+                    "in_org_id": "@reduce/pdf@0.0.0",
+                    "hooks": {
+                        "doSelect": {
+                            "input": "doSelect",
+                            "inputInitValue": "null",
+                            "payloadType": "string",
+                            "hooksMeans": "设置选中的内容还有选中的坐标"
+                        },
+                        "doFloatShow": {
+                            "input": "doFloatShow",
+                            "inputInitValue": "null",
+                            "payloadType": "string",
+                            "hooksMeans": "在(x,y)显示悬浮按钮组"
+                        },
+                        "doFloatButtonClick": {
+                            "input": "doFloatButtonClick",
+                            "inputInitValue": "0",
+                            "payloadType": "number",
+                            "hooksMeans": "当浮动按钮点击时"
+                        }
+                    }
+                }
+            },
+            "selectHook": "doFloatButtonClick"
+        },
+        "ports": [
+            {
+                "id": "3",
+                "group": "right"
+            }
+        ]
+    },
+    {
+        "id": "@reduce/2",
+        "shape": "plugin",
+        "x": 390,
+        "y": 110,
+        "data": {
+            "plugin": {
+                "in_org_id": "@reduce/card@0.0.0",
+                "name": "card",
+                "org_name": "reduce",
+                "author_name": "happysmile",
+                "installed": true,
+                "profile_page": "https://github.com/happysmile12321",
+                "national_name": [
+                    "China"
+                ],
+                "repo_link": "https://github.com/reduce4/card",
+                "version": "0.0.0",
+                "description": "show ability",
+                "pay_qrcode": "",
+                "icon": "/plugin.png",
+                "org_icon": "/reduce_org.png",
+                "component_url": "http://127.0.0.1:6002/card/src/main.jsx",
+                "comment": [
+                    {
+                        "name": "happysmile",
+                        "account": "@reduce/happysmile",
+                        "content": "very nice",
+                        "star": 4
+                    },
+                    {
+                        "name": "ken",
+                        "account": "@ken/ken",
+                        "content": "need to add css support!",
+                        "star": 5
+                    }
+                ],
+                "usage": [
+                    {
+                        "open_time": "",
+                        "close_time": "",
+                        "duration": 0,
+                        "command_history": []
+                    }
+                ],
+                "roadmap": {
+                    "content": {
+                        "2023-05-02": "coding",
+                        "2023-05-03": "v0.0.0 complete"
+                    }
+                },
+                "dsl": {
+                    "in_org_id": "@reduce/card@0.0.0",
+                    "hooks": {
+                        "doShow": {
+                            "input": "doShow",
+                            "inputInitValue": "'Complete'",
+                            "payloadType": "string",
+                            "hooksMeans": "改变card能力的展现方式"
+                        },
+                        "doMove": {
+                            "input": "doMove",
+                            "inputInitValue": "[0,0]",
+                            "payloadType": "array",
+                            "hooksMeans": "在(x,y)处显示"
+                        }
+                    }
+                }
+            },
+            "selectHook": "doMove"
+        },
+        "ports": [
+            {
+                "id": "1",
+                "group": "left"
+            }
+        ]
+    },
+    {
+        "id": "@reduce/3",
+        "shape": "edge",
+        "source": {
+            "cell": "@reduce/1",
+            "port": "1"
+        },
+        "target": {
+            "cell": "@reduce/2",
+            "port": "1"
+        },
+        "zIndex": 0
+    }
+]
+
+    export default
+    [
+    {
+        "id": "@reduce/1",
+        "shape": "plugin",
+        "x": 90,
+        "y": 110,
+        "data": {
+            "plugin": {
+                "in_org_id": "@reduce/pdf@0.0.0",
+                "name": "pdf",
+                "org_name": "reduce",
+                "author_name": "happysmile",
+                "installed": true,
+                "profile_page": "https://github.com/happysmile12321",
+                "national_name": [
+                    "China"
+                ],
+                "repo_link": "https://github.com/reduce4/pdf",
+                "version": "0.0.0",
+                "description": "pdf plugin for control pdf",
+                "pay_qrcode": "",
+                "icon": "/plugin.png",
+                "org_icon": "/reduce_org.png",
+                "component_url": "http://127.0.0.1:6001/pdf/src/main.jsx",
+                "comment": [
+                    {
+                        "name": "happysmile",
+                        "account": "@reduce/happysmile",
+                        "content": "very nice pdf tools!",
+                        "star": 5
+                    },
+                    {
+                        "name": "ken",
+                        "account": "@ken/ken",
+                        "content": "speed, simple, useful tools!",
+                        "star": 5
+                    }
+                ],
+                "usage": [
+                    {
+                        "open_time": "",
+                        "close_time": "",
+                        "duration": 0,
+                        "command_history": []
+                    }
+                ],
+                "roadmap": {
+                    "content": {
+                        "2023-05-14": "done"
+                    }
+                },
+                "dsl": {
+                    "in_org_id": "@reduce/pdf@0.0.0",
+                    "hooks": {
+                        "doSelect": {
+                            "input": "doSelect",
+                            "inputInitValue": "null",
+                            "payloadType": "string",
+                            "hooksMeans": "设置选中的内容还有选中的坐标"
+                        },
+                        "doFloatShow": {
+                            "input": "doFloatShow",
+                            "inputInitValue": "null",
+                            "payloadType": "string",
+                            "hooksMeans": "在(x,y)显示悬浮按钮组"
+                        },
+                        "doFloatButtonClick": {
+                            "input": "doFloatButtonClick",
+                            "inputInitValue": "0",
+                            "payloadType": "number",
+                            "hooksMeans": "当浮动按钮点击时"
+                        }
+                    }
+                }
+            },
+            "selectHook": "doFloatButtonClick"
+        },
+        "ports": [
+            {
+                "id": "3",
+                "group": "right"
+            }
+        ]
+    },
+    {
+        "id": "@reduce/2",
+        "shape": "plugin",
+        "x": 390,
+        "y": 110,
+        "data": {
+            "plugin": {
+                "in_org_id": "@reduce/card@0.0.0",
+                "name": "card",
+                "org_name": "reduce",
+                "author_name": "happysmile",
+                "installed": true,
+                "profile_page": "https://github.com/happysmile12321",
+                "national_name": [
+                    "China"
+                ],
+                "repo_link": "https://github.com/reduce4/card",
+                "version": "0.0.0",
+                "description": "show ability",
+                "pay_qrcode": "",
+                "icon": "/plugin.png",
+                "org_icon": "/reduce_org.png",
+                "component_url": "http://127.0.0.1:6002/card/src/main.jsx",
+                "comment": [
+                    {
+                        "name": "happysmile",
+                        "account": "@reduce/happysmile",
+                        "content": "very nice",
+                        "star": 4
+                    },
+                    {
+                        "name": "ken",
+                        "account": "@ken/ken",
+                        "content": "need to add css support!",
+                        "star": 5
+                    }
+                ],
+                "usage": [
+                    {
+                        "open_time": "",
+                        "close_time": "",
+                        "duration": 0,
+                        "command_history": []
+                    }
+                ],
+                "roadmap": {
+                    "content": {
+                        "2023-05-02": "coding",
+                        "2023-05-03": "v0.0.0 complete"
+                    }
+                },
+                "dsl": {
+                    "in_org_id": "@reduce/card@0.0.0",
+                    "hooks": {
+                        "doShow": {
+                            "input": "doShow",
+                            "inputInitValue": "'Complete'",
+                            "payloadType": "string",
+                            "hooksMeans": "改变card能力的展现方式"
+                        },
+                        "doMove": {
+                            "input": "doMove",
+                            "inputInitValue": "[0,0]",
+                            "payloadType": "array",
+                            "hooksMeans": "在(x,y)处显示"
+                        }
+                    }
+                }
+            },
+            "selectHook": "doMove"
+        },
+        "ports": [
+            {
+                "id": "1",
+                "group": "left"
+            }
+        ]
+    },
+    {
+        "id": "@reduce/3",
+        "shape": "edge",
+        "source": {
+            "cell": "@reduce/1",
+            "port": "1"
+        },
+        "target": {
+            "cell": "@reduce/2",
+            "port": "1"
+        },
+        "zIndex": 0
+    }
+]
